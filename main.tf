@@ -8,6 +8,6 @@ terraform {
     backend "s3" {
         bucket = "patsy-terraform-bucket"  
         key    = "terraform.tfstate"       # Name of the state file
-        region = "eu-west-2"       #region        
+        region = "eu-west-2"              
     }
 }
