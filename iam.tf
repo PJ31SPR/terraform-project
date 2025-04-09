@@ -1,6 +1,6 @@
 # IAM Role for Elastic Beanstalk EC2 instances
 resource "aws_iam_role" "elastic_beanstalk_ec2_role" {
-  name = "elastic-beanstalk-ec2-role"
+  name = "patsy-elastic-beanstalk-ec2-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -34,6 +34,6 @@ resource "aws_iam_role_policy_attachment" "eb_ecr_access" {
 
 # Create instance profile for EC2 instances
 resource "aws_iam_instance_profile" "elastic_beanstalk_ec2_instance_profile" {
-  name = "elastic-beanstalk-ec2-instance-profile"
+  name = "patsy-elastic-beanstalk-ec2-instance-profile"
   role = aws_iam_role.elastic_beanstalk_ec2_role.name
 }
