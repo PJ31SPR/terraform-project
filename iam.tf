@@ -29,7 +29,7 @@ resource "aws_iam_role_policy_attachment" "eb_worker_tier" {
 
 resource "aws_iam_role_policy_attachment" "eb_ecr_access" {
   role       = aws_iam_role.elastic_beanstalk_ec2_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonECR-FullAccess"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
 }
 
 # Create instance profile for EC2 instances
