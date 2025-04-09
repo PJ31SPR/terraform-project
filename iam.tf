@@ -32,6 +32,16 @@ resource "aws_iam_role_policy_attachment" "eb_ecr_access" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
 }
 
+resource "aws_iam_role_policy_attachment" "eb_multicontainer_docker" {
+  role       = aws_iam_role.elastic_beanstalk_ec2_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker"
+}
+
+resource "aws_iam_role_policy_attachment" "eb_cloudwatch_logs_access" {
+  role       = aws_iam_role.elastic_beanstalk_ec2_role.name
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
+}
+
 # Create instance profile for EC2 instances
 resource "aws_iam_instance_profile" "elastic_beanstalk_ec2_instance_profile" {
   name = "patsy-elastic-beanstalk-ec2-instance-profile"

@@ -27,7 +27,7 @@ resource "aws_elastic_beanstalk_environment" "task_listing_app_environment" {
   # Instance type
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
-    name      = "InstanceType"
+    name      = "InstanceType"  
     value     = "t2.micro"
   }
   
