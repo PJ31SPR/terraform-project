@@ -51,6 +51,34 @@ resource "aws_elastic_beanstalk_environment" "task_listing_app_environment" {
     name      = "Application Healthcheck URL"
     value     = "/"
   }
+
+  # Docker Image Setting
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DOCKER_IMAGE"
+    value     = "664047078509.dkr.ecr.eu-west-2.amazonaws.com/task-listing-app:ps-v1"
+  }
+
+  # Docker Container Port Setting
+  setting {
+    namespace = "aws:elasticbeanstalk:container:docker"
+    name      = "Port"
+    value     = "80"
+  }
+
+  # Load Balancer Type
+  setting {
+    namespace = "aws:elasticbeanstalk:environment"
+    name      = "LoadBalancerType"
+    value     = "application"
+  }
+
+  # Docker Expose Port
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "EB_DOCKER_EXPOSE_PORT"
+    value     = "80"
+  }
 }
 
 # Output the Elastic Beanstalk environment URL
