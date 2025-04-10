@@ -52,13 +52,6 @@ resource "aws_elastic_beanstalk_environment" "task_listing_app_environment" {
     value     = "/"
   }
 
-  # Docker Image Setting
-  setting {
-    namespace = "aws:elasticbeanstalk:application:environment"
-    name      = "DOCKER_IMAGE"
-    value     = "664047078509.dkr.ecr.eu-west-2.amazonaws.com/task-listing-app:ps-v1"
-  }
-
   # Load Balancer Type
   setting {
     namespace = "aws:elasticbeanstalk:environment"
