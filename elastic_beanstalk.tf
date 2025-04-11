@@ -59,6 +59,32 @@ resource "aws_elastic_beanstalk_environment" "task_listing_app_environment" {
     value     = "application"
   }
 
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DB_HOST"
+    value     = aws_db_instance.rds_app.address
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DB_DATABASE"
+    value     = aws_db_instance.rds_app.db_name
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DB_USER"
+    value     = aws_db_instance.rds_app.username
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DB_PASSWORD"
+    value     = aws_db_instance.rds_app.password
+  }
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name      = "DB_PORT"
+    value     = aws_db_instance.rds_app.port
+  }
+
 }
 
 # Output the Elastic Beanstalk environment URL
